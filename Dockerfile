@@ -13,7 +13,6 @@ COPY --from=base /git/svgomg .
 RUN npm install && \
     npm run build
 
-FROM pierrezemb/gostatic
+FROM lipanski/docker-static-website
 
-COPY --from=build /svgomg/build /srv/http
-EXPOSE 8043
+COPY --from=build /svgomg/build .

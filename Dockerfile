@@ -6,7 +6,7 @@ RUN git clone https://github.com/jakearchibald/svgomg.git && \
     ([[ "$TAG" = "latest" ]] || git checkout ${TAG}) && \
     rm -rf .git
 
-FROM node:alpine as build
+FROM node:alpine AS build
 
 WORKDIR /svgomg
 COPY --from=base /git/svgomg .
